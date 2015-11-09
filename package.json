@@ -4,7 +4,8 @@
   "description": "GN / generate ninja language support for Atom",
   "keywords": [
     "gn",
-    "ninja"
+    "ninja",
+    "build"
   ],
   "repository": "https://github.com/devoncarew/language-gn",
   "license": "BSD",
