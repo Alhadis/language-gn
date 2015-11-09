@@ -14,4 +14,4 @@ For more information about the Ninja build system, see
 ## Attributions
 
 The `gn.cson` grammar file was originally converted from the `language-bazel`
-grammar package, by Pavel Tsurko.
+grammar package by Pavel Tsurko.
