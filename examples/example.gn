@@ -1,0 +1,20 @@
+# Declares static library consisting of rules to build all of the IDL files into
+# compiled code.
+template("idl") {
+  source_set(target_name) {
+
+  }
+}
+
+# This call is typically in the build config file (see above).
+set_defaults("static_library") {
+  configs = [ "//build:rtti_setup", "//build:extra_warnings" ]
+}
+
+# This would be in your directory's BUILD.gn file.
+static_library("mylib") {
+  # At this point configs is set to [ "//build:rtti_setup", "//build:extra_warnings" ]
+  # by default but may be modified.
+  configs -= "//build:extra_warnings"  # Don't want these warnings.
+  configs += ":mylib_config"  # Add some more configs.
+}

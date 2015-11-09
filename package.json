@@ -1,0 +1,15 @@
+{
+  "name": "language-gn",
+  "version": "0.1.0",
+  "description": "GN / generate ninja language support for Atom",
+  "keywords": [
+    "gn",
+    "ninja"
+  ],
+  "repository": "https://github.com/devoncarew/language-gn",
+  "license": "BSD",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {}
+}
