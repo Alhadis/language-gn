@@ -1,7 +1,7 @@
 {
   "name": "language-gn",
   "version": "0.1.0",
-  "description": "GN / generate Ninja files language support for Atom",
+  "description": "GN / Generate Ninja files language support for Atom",
   "keywords": [
     "gn",
     "ninja",
