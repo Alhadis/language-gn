@@ -9,6 +9,8 @@ for more information.
 For more information about the Ninja build system, see
 [here](https://martine.github.io/ninja/).
 
+![Highlighted GN file](https://raw.githubusercontent.com/devoncarew/language-gn/master/docs/screenshot.png)
+
 ## Attributions
 
 The `gn.cson` grammar file was originally converted from the `language-bazel`
