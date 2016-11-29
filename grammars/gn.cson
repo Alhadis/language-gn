@@ -16,7 +16,13 @@
         'include': '#comment'
       }
       {
-        'include': '#assignment'
+        'include': '#string'
+      }
+      {
+        'include': '#variable'
+      }
+      {
+        'include': '#operators'
       }
       {
         'include': '#function'
@@ -59,13 +65,11 @@
       }
     ]
   'number':
+    'name': 'constant.numeric.gn'
     'match': '\\d+'
-    'captures':
-      '0': 'name': 'constant.numeric.gn'
   'variable':
-    'match': '\\w+'
-    'captures':
-      '0': 'name': 'variable.other.gn'
+    'name': 'variable.assignment.gn'
+    'match': '\\w+(?=\\s*[-+]?=)'
   'function':
     'name': 'meta.function.gn'
     'begin': '(\\w+)\\s*(\\()'
@@ -101,18 +105,11 @@
         'include': '#expression'
       }
     ]
-  'assignment':
-    'name': 'meta.assignment.gn'
-    'begin': '(\\w+)\\s*(=)\\s*'
-    'beginCaptures':
-      '1': 'name': 'variable.other.gn'
-      '2': 'name': 'keyword.operator.assignment.gn'
-    'end': '(;|\\n)'
-    'endCaptures':
-      '0': 'name': 'punctuation.statement.end.gn'
+  'operators':
     'patterns': [
       {
-        'include': '#expression'
+        'name': 'keyword.operator.assignment.gn'
+        'match': '[-+]?='
       }
     ]
   'array':
@@ -131,51 +128,5 @@
         'match': '\\s*([,])\\s*'
         'captures':
           '1': 'name': 'punctuation.separator.gn'
-      }
-    ]
-  'dictionary':
-    'name': 'meta.dictionary.gn'
-    'begin': '\\{'
-    'beginCaptures':
-      '0': 'name': 'punctuation.dictionary.begin.gn'
-    'end': '\\s*\\}'
-    'endCaptures':
-      '0': 'name': 'punctuation.dictionary.end.gn'
-    'patterns': [
-      {
-        'include': '#expression'
-      }
-      {
-        'match': '\\s*([,:])\\s*'
-        'captures':
-          '1': 'name': 'punctuation.separator.gn'
-      }
-    ]
-  'expression':
-    'name': 'meta.expression.gn'
-    'contentName': 'meta.expression.gn'
-    'patterns': [
-      {
-        'include': '#function'
-      }
-      {
-        'include': '#array'
-      }
-      {
-        'include': '#dictionary'
-      }
-      {
-        'include': '#number'
-      }
-      {
-        'include': '#variable'
-      }
-      {
-        'include': '#string'
-      }
-      {
-        'match': '\\+|\\-|\\%'
-        'captures':
-          '0': 'name': 'operator.gn'
       }
     ]
