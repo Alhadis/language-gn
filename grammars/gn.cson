@@ -16,6 +16,9 @@
         'include': '#comment'
       }
       {
+        'include': '#number'
+      }
+      {
         'include': '#condition'
       }
       {
@@ -37,15 +40,26 @@
         'include': '#array'
       }
       {
-        'include': '#comma'
+        'include': '#brackets'
+      }
+      {
+        'include': '#separators'
       }
       {
         'include': '#scope'
       }
     ]
-  'comma':
-    'name': 'punctuation.separator.list.comma.gn'
-    'match': ','
+  'separators':
+    'patterns': [
+      {
+        'name': 'punctuation.separator.list.comma.gn'
+        'match': ','
+      }
+      {
+        'name': 'punctuation.delimiter.property.period.gn'
+        'match': '\\.'
+      }
+    ]
   'comment':
     'name': 'comment.line.number-sign.gn'
     'begin': '#'
@@ -145,7 +159,7 @@
     'patterns': [
       {
         'name': 'variable.assignment.gn'
-        'match': '\\w+(?=\\s*[-+]?=)'
+        'match': '\\w+(?=\\s*[-+]?=|\\s*[\\[.])'
       }
       {
         'match': '(?<==)\\s*(?!\\d|if|else|foreach|true|false)(\\w+)\\s*(?!\\()'
@@ -155,7 +169,7 @@
     ]
   'function-call':
     'name': 'meta.function-call.gn'
-    'begin': '\\s*(\\w+)\\s*(?=\\()'
+    'begin': '\\s*(?!\\d|if|else|foreach|true|false)(\\w+)\\s*(?=\\()'
     'beginCaptures':
       '1': 'name': 'entity.name.function.gn'
     'end': '(?<=\\))'
@@ -211,6 +225,22 @@
     'end': '\\]'
     'endCaptures':
       '0': 'name': 'punctuation.section.end.bracket.square.gn'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+      {
+        'match': '\\w+'
+        'name': 'variable.reference.gn'
+      }
+    ]
+  'brackets':
+    'begin': '\\('
+    'beginCaptures':
+      '0': 'name': 'punctuation.section.begin.bracket.round.gn'
+    'end': '\\)'
+    'endCaptures':
+      '0': 'name': 'punctuation.section.end.bracket.round.gn'
     'patterns': [
       {
         'include': '$self'
