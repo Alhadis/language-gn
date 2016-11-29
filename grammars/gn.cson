@@ -66,6 +66,15 @@
     'end': '$'
     'beginCaptures':
       '0': 'name': 'punctuation.definition.comment.gn'
+    'patterns': [
+      {
+        'match': '(?<=TODO)(\\()\\s*(\\w+)\\s*(\\))\\s*:'
+        'captures':
+          '1': 'name': 'punctuation.section.begin.bracket.round.todo'
+          '2': 'name': 'storage.type.class.assignee.todo'
+          '3': 'name': 'punctuation.section.end.bracket.round.todo'
+      }
+    ]
   'condition':
     'name': 'meta.condition.gn'
     'begin': '(if|else)\\s*(?=\\()'
