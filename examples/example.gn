@@ -25,3 +25,10 @@ a = "mypath"
 b = "$a/foo.cc"  # b -> "mypath/foo.cc"
 c = "foo${a}bar.cc"  # c -> "foomypathbar.cc"
 "look$0x0Alike$0x0Athis"
+
+
+# Lists
+a = [ "first" ]
+a += [ "second" ]  # [ "first", "second" ]
+a += [ "third", "fourth" ]  # [ "first", "second", "third", "fourth" ]
+b = a + [ "fifth" ]  # [ "first", "second", "third", "fourth", "fifth" ]

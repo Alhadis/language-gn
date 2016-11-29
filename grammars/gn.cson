@@ -25,9 +25,18 @@
         'include': '#operators'
       }
       {
+        'include': '#array'
+      }
+      {
+        'include': '#comma'
+      }
+      {
         'include': '#function'
       }
     ]
+  'comma':
+    'name': 'punctuation.separator.list.comma.gn'
+    'match': ','
   'comment':
     'name': 'comment.line.number-sign.gn'
     'begin': '#'
@@ -80,8 +89,17 @@
     'name': 'constant.numeric.gn'
     'match': '\\d+'
   'variable':
-    'name': 'variable.assignment.gn'
-    'match': '\\w+(?=\\s*[-+]?=)'
+    'patterns': [
+      {
+        'name': 'variable.assignment.gn'
+        'match': '\\w+(?=\\s*[-+]?=)'
+      }
+      {
+        'match': '(?<==)\\s*(\\w+)'
+        'captures':
+          '1': 'name': 'variable.reference.gn'
+      }
+    ]
   'function':
     'name': 'meta.function.gn'
     'begin': '(\\w+)\\s*(\\()'
@@ -123,22 +141,25 @@
         'name': 'keyword.operator.assignment.gn'
         'match': '[-+]?='
       }
+      {
+        'name': 'keyword.operator.arithmetic.gn'
+        'match': '-|\\+'
+      }
     ]
   'array':
     'name': 'meta.array.gn'
     'begin': '\\['
     'beginCaptures':
-      '0': 'name': 'punctuation.array.begin.gn'
+      '0': 'name': 'punctuation.section.begin.bracket.square.gn'
     'end': '\\]'
     'endCaptures':
-      '0': 'name': 'punctuation.array.end.gn'
+      '0': 'name': 'punctuation.section.end.bracket.square.gn'
     'patterns': [
       {
-        'include': '#expression'
+        'match': '\\w+'
+        'name': 'variable.reference.gn'
       }
       {
-        'match': '\\s*([,])\\s*'
-        'captures':
-          '1': 'name': 'punctuation.separator.gn'
+        'include': '$self'
       }
     ]
