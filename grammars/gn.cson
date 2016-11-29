@@ -16,6 +16,12 @@
         'include': '#comment'
       }
       {
+        'include': '#condition'
+      }
+      {
+        'include': '#function-call'
+      }
+      {
         'include': '#keywords'
       }
       {
@@ -34,7 +40,7 @@
         'include': '#comma'
       }
       {
-        'include': '#function'
+        'include': '#scope'
       }
     ]
   'comma':
@@ -46,6 +52,31 @@
     'end': '$'
     'beginCaptures':
       '0': 'name': 'punctuation.definition.comment.gn'
+  'condition':
+    'name': 'meta.condition.gn'
+    'begin': '(if|else)\\s*(?=\\()'
+    'beginCaptures':
+      '1': 'name': 'keyword.control.$1.gn'
+    'end': '(?<=\\))'
+    'patterns': [
+      {
+        'begin': '\\G\\('
+        'beginCaptures':
+          '0': 'name': 'punctuation.definition.condition.begin.bracket.round.gn'
+        'end': '\\)'
+        'endCaptures':
+          '0': 'name': 'punctuation.definition.condition.end.bracket.round.gn'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+          {
+            'match': '\\w+'
+            'name': 'variable.reference.gn'
+          }
+        ]
+      }
+    ]
   'keywords':
     'patterns': [
       {
@@ -117,44 +148,35 @@
         'match': '\\w+(?=\\s*[-+]?=)'
       }
       {
-        'match': '(?<==)\\s*(\\w+)'
+        'match': '(?<==)\\s*(?!\\d|if|else|foreach|true|false)(\\w+)\\s*(?!\\()'
         'captures':
           '1': 'name': 'variable.reference.gn'
       }
     ]
-  'function':
-    'name': 'meta.function.gn'
-    'begin': '(\\w+)\\s*(\\()'
+  'function-call':
+    'name': 'meta.function-call.gn'
+    'begin': '\\s*(\\w+)\\s*(?=\\()'
     'beginCaptures':
-      '1': 'name': 'storage.type.function.gn'
-      '2': 'name': 'punctuation.function.parameters.begin.gn'
-    'end': '\\)'
-    'endCaptures':
-      '0': 'name': 'punctuation.function.parameters.end.gn'
+      '1': 'name': 'entity.name.function.gn'
+    'end': '(?<=\\))'
     'patterns': [
       {
-        'include': '#argument'
-      }
-    ]
-  'argument':
-    'patterns': [
-      {
-        'name': 'mata.argument.gn'
-        'begin': '(\\w+)\\s*(=)\\s*'
+        'name': 'meta.parameters.gn'
+        'begin': '\\G\\('
         'beginCaptures':
-          '1': 'name': 'variable.parameter.gn'
-          '2': 'name': 'keyword.operator.assignment.gn'
-        'end': ',|\\n'
+          '0': 'name': 'punctuation.definition.parameters.begin.bracket.round.gn'
+        'end': '\\)'
         'endCaptures':
-          '0': 'name': 'punctuation.separator.gn'
+          '0': 'name': 'punctuation.definition.parameters.end.bracket.round.gn'
         'patterns': [
           {
-            'include': '#expression'
+            'include': '$self'
+          }
+          {
+            'match': '\\w+'
+            'name': 'variable.argument.parameter.gn'
           }
         ]
-      }
-      {
-        'include': '#expression'
       }
     ]
   'operators':
@@ -168,6 +190,19 @@
         'match': '-|\\+'
       }
     ]
+  'scope':
+    'name': 'meta.scope.gn'
+    'begin': '{'
+    'end': '}'
+    'beginCaptures':
+      '0': 'name': 'punctuation.scope.begin.bracket.curly.gn'
+    'endCaptures':
+      '0': 'name': 'punctuation.scope.begin.bracket.curly.gn'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
   'array':
     'name': 'meta.array.gn'
     'begin': '\\['
@@ -178,10 +213,10 @@
       '0': 'name': 'punctuation.section.end.bracket.square.gn'
     'patterns': [
       {
-        'match': '\\w+'
-        'name': 'variable.reference.gn'
+        'include': '$self'
       }
       {
-        'include': '$self'
+        'match': '\\w+'
+        'name': 'variable.reference.gn'
       }
     ]
