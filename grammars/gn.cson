@@ -58,7 +58,7 @@
       }
       {
         'name': 'constant.character.escape.hex.gn'
-        'match': '\\$0x[0-9A-Fa-f]+'
+        'match': '\\$0x[0-9A-Fa-f]{2}'
       }
       {
         'name': 'punctuation.separator.build-path.gn'
