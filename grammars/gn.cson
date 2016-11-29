@@ -4,45 +4,58 @@
   'gn',
   'gni'
 ]
-'injections':
-  'source.gn':
+'patterns': [
+  {
+    'include': '#main'
+  }
+]
+'repository':
+  'main':
     'patterns': [
       {
         'include': '#comment'
       }
+      {
+        'include': '#assignment'
+      }
+      {
+        'include': '#function'
+      }
     ]
-'patterns': [
-  {
-    'include': '#assignment'
-  }
-  {
-    'include': '#function'
-  }
-]
-'repository':
   'comment':
-    'name': 'punctuation.comment.gn'
-    'match': '#[^\\n]*\\n'
+    'name': 'comment.line.number-sign.gn'
+    'begin': '#'
+    'end': '$'
+    'beginCaptures':
+      '0': 'name': 'punctuation.definition.comment.gn'
   'string':
+    'name': 'string.quoted.double.gn'
+    'begin': '"'
+    'end': '"'
+    'beginCaptures':
+      '0': 'name': 'punctuation.definition.string.begin.gn'
+    'endCaptures':
+      '0': 'name': 'punctuation.definition.string.end.gn'
     'patterns': [
       {
-        'begin': '"""'
-        'end': '"""'
-        'name': 'string.quoted.triple.gn'
+        'name': 'constant.character.escape.gn'
+        'match': '\\\\["$\\\\]'
       }
       {
-        'match': '(\')([^\']*)(\')'
-        'captures':
-          '0': 'name': 'punctuation.string.single.begin.gn'
-          '1': 'name': 'string.quoted.single.gn'
-          '2': 'name': 'punctuation.string.single.end.gn'
+        'name': 'source.gn.embedded'
+        'begin': '\\${'
+        'end': '}'
+        'contentName': 'variable.interpolated.embedded.gn'
+        'beginCaptures':
+          '0': 'name': 'punctuation.section.embedded.begin.gn'
+        'endCaptures':
+          '0': 'name': 'punctuation.section.embedded.end.gn'
       }
       {
-        'match': '(\")([^\"]*)(\")'
+        'name': 'variable.interpolated.embedded.gn'
+        'match': '(\\$)\\w+'
         'captures':
-          '0': 'name': 'punctuation.string.double.begin.gn'
-          '1': 'name': 'string.quoted.double.gn'
-          '2': 'name': 'punctuation.string.double.end.gn'
+          '1': 'name': 'punctuation.definition.variable.embedded.gn'
       }
     ]
   'number':

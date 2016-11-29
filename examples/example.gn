@@ -18,3 +18,9 @@ static_library("mylib") {
   configs -= "//build:extra_warnings"  # Don't want these warnings.
   configs += ":mylib_config"  # Add some more configs.
 }
+
+
+# Strings
+a = "mypath"
+b = "$a/foo.cc"  # b -> "mypath/foo.cc"
+c = "foo${a}bar.cc"  # c -> "foomypathbar.cc"
