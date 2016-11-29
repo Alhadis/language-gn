@@ -86,8 +86,16 @@
       }
     ]
   'number':
-    'name': 'constant.numeric.gn'
-    'match': '\\d+'
+    'patterns': [
+      {
+        'name': 'invalid.illegal.number.gn'
+        'match': '-0+|0+(?=[1-9])'
+      }
+      {
+        'name': 'constant.numeric.gn'
+        'match': '-?\\d+'
+      }
+    ]
   'variable':
     'patterns': [
       {
