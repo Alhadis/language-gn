@@ -169,7 +169,7 @@
     ]
   'function-call':
     'name': 'meta.function-call.gn'
-    'begin': '\\s*(?!\\d|if|else|foreach|true|false)(\\w+)\\s*(?=\\()'
+    'begin': '\\s*(?!if|else|foreach|true|false)(\\w+)\\s*(?=\\()'
     'beginCaptures':
       '1': 'name': 'entity.name.function.gn'
     'end': '(?<=\\))'
