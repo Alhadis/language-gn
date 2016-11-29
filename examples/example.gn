@@ -36,8 +36,15 @@ b = a + [ "fifth" ]  # [ "first", "second", "third", "fourth", "fifth" ]
 # Keywords
 if else foreach true false
 
+# Lists, etc
 mylist[0] += 1
 var = mylist[2]
-
 myvalues.foo += 2
 empty_scope.new_thing = [ 1, 2, 3 ]
+
+
+# Punctuation
++       +=      ==      !=      (       )
+-       -=      <       <=      [       ]
+!       =       >       >=      {       }
+                &&      ||      .       ,

@@ -196,6 +196,14 @@
   'operators':
     'patterns': [
       {
+        'name': 'keyword.operator.comparison.gn'
+        'match': '==|!=|[><]=?'
+      }
+      {
+        'name': 'keyword.operator.logical.gn'
+        'match': '!|[|&]{2}'
+      }
+      {
         'name': 'keyword.operator.assignment.gn'
         'match': '[-+]?='
       }
