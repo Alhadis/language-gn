@@ -48,6 +48,18 @@
         'match': '\\\\["$\\\\]'
       }
       {
+        'name': 'constant.character.escape.hex.gn'
+        'match': '\\$0x[0-9A-Fa-f]+'
+      }
+      {
+        'name': 'punctuation.separator.build-path.gn'
+        'match': ':(?=\\w+")'
+      }
+      {
+        'name': 'punctuation.definition.build-path.gn'
+        'match': '\\G//'
+      }
+      {
         'name': 'source.gn.embedded'
         'begin': '\\${'
         'end': '}'

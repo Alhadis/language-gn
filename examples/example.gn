@@ -24,3 +24,4 @@ static_library("mylib") {
 a = "mypath"
 b = "$a/foo.cc"  # b -> "mypath/foo.cc"
 c = "foo${a}bar.cc"  # c -> "foomypathbar.cc"
+"look$0x0Alike$0x0Athis"
