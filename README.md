@@ -7,7 +7,7 @@ GN files are used to generate Ninja build files; see
 for more information.
 
 For more information about the Ninja build system, see
-[here](https://martine.github.io/ninja/).
+[here](https://ninja-build.org/).
 
 ![Highlighted GN file](https://raw.githubusercontent.com/devoncarew/language-gn/master/docs/screenshot.png)
 
