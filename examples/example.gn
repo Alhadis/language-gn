@@ -32,3 +32,6 @@ a = [ "first" ]
 a += [ "second" ]  # [ "first", "second" ]
 a += [ "third", "fourth" ]  # [ "first", "second", "third", "fourth" ]
 b = a + [ "fifth" ]  # [ "first", "second", "third", "fourth", "fifth" ]
+
+# Keywords
+if else foreach true false

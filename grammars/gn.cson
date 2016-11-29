@@ -16,6 +16,9 @@
         'include': '#comment'
       }
       {
+        'include': '#keywords'
+      }
+      {
         'include': '#string'
       }
       {
@@ -43,6 +46,17 @@
     'end': '$'
     'beginCaptures':
       '0': 'name': 'punctuation.definition.comment.gn'
+  'keywords':
+    'patterns': [
+      {
+        'name': 'constant.language.boolean.$1.gn'
+        'match': '\\b(true|false)\\b'
+      }
+      {
+        'name': 'keyword.control.$1.gn'
+        'match': '\\b(if|else|foreach)\\b'
+      }
+    ]
   'string':
     'name': 'string.quoted.double.gn'
     'begin': '"'
