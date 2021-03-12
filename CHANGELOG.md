@@ -1,6 +1,7 @@
 # Changelog
 
 ## Staged
+- Added support for auto-indenting `[` and `]`
 - Fixed [various inaccuracies](https://github.com/github/linguist/pull/5271) related to modeline matching
 
 ## 0.2.0

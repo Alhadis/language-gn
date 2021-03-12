@@ -1,3 +1,5 @@
 '.source.gn':
   'editor':
     'commentStart': '# '
+    'increaseIndentPattern': '\\[(?:[^\\]"\'\\\\#]|\\.)*+(?:#.*)?+$'
+    'decreaseIndentPattern': '^\\s*\\]'
