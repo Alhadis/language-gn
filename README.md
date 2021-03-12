@@ -3,7 +3,7 @@
 Syntax highlighting support for Generate Ninja / `.gn` files.
 
 GN files are used to generate Ninja build files; see
-[here](https://chromium.googlesource.com/chromium/src/+/master/tools/gn/README.md)
+[here](https://gn.googlesource.com/gn/)
 for more information.
 
 For more information about the Ninja build system, see
