@@ -1,5 +1,8 @@
 # Changelog
 
+## Staged
+- Fixed [various inaccuracies](https://github.com/github/linguist/pull/5271) related to modeline matching
+
 ## 0.2.0
 - Grammar significantly re-written by John Gardner (@alhadis)
 
