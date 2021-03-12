@@ -1,0 +1,8 @@
+# Include CSON files when computing language-stats
+*.cson linguist-detectable=true
+
+# GN files are used for illustration only
+*.gn linguist-documentation=true
+
+# Exclude screenshot from distributed tarballs
+*.png export-ignore
